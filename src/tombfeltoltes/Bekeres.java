@@ -4,33 +4,29 @@
  */
 package tombfeltoltes;
 
-import java.awt.BorderLayout;
 import java.util.Scanner;
 
-/**
- *
- * @author LukácsAlexandra(SZOF
- */
+
 public class Bekeres {
     //static Scanner sc = new Scanner(System.in, "utf-8");
-    //static Scanner sc = new Scanner(System.in, "latin1");
+    //static Scanner sc = new Scanner(System.in, "latin1"); //iso-8859-1
+    //static Scanner sc = new Scanner(System.in, "iso-8859-2"); //latin2
+    //static Scanner sc = new Scanner(System.in, "windows-1250");
     static Scanner sc = new Scanner(System.in, "latin2");
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         /* 1.: programban drótozva: */
         //final int DB = 3;
         
         /* 2.: user dönti el: */
-        System.out.println("név db: ");
+        System.out.print("név db: ");
         final int DB = sc.nextInt();
-        sc.nextLine(); // ENTER kiolvasása a streamből
-        
         String[] nevek = new String[DB];
+        sc.nextLine(); // ENTER kiolvasása 
+        
         /* feltöltés */
         for (int i = 0; i < DB; i++) {
-            System.out.printf("%d/%d név: ", DB, i+1);
+            System.out.printf(" név (%d/%d): ", i+1, DB);
             String nev = sc.nextLine();
             nevek[i] = nev;
         }

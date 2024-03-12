@@ -7,10 +7,7 @@ package feladatok;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- *
- * @author LukácsAlexandra(SZOF
- */
+
 public class Helyseg {
     
     static Scanner sc = new Scanner(System.in, "latin2");
@@ -18,9 +15,9 @@ public class Helyseg {
     
     public static void main(String[] args) {
         /* user meghatározza a helységek számát: */
-        System.out.println("hány helység lesz: ");
+        System.out.print("hány helység lesz: ");
         final int DB = sc.nextInt();
-        sc.nextLine();
+        sc.nextLine(); //ENTER kiolvasása
         
         /* user feltölti a helységek tömböt az általa gondolt értékekkel */
         String[] helysegek = new String[DB];//üres tömb
@@ -30,11 +27,11 @@ public class Helyseg {
             helysegek[i] = sc.nextLine();
         }
             
-        /* program generál véletlen értékeket a látszámhoz: */
+        /* program generál véletlen értékeket a létszámhoz: */
         int[] letszamok = new int[DB];//üres tömb
         for (int i = 0; i < DB; i++) {
             /* értékadás a tömb i. elemének: */
-            letszamok[i] = rnd.nextInt(1000);
+            letszamok[i] = rnd.nextInt(800, 1_238);
         }
         
         /* kiírás */
@@ -55,10 +52,10 @@ public class Helyseg {
         }
         String helys = helysegek[m];
         int letsz = letszamok[m];
-        System.out.printf("Az %s rendelkezik a legtöbb lakossal (%d fő): ", helys, letsz);
+        System.out.printf("Az %s rendelkezik a legtöbb lakossal (%d fő): \n", helys, letsz);
         
         
-        // eldöntés
+        // eldöntés I.
         System.out.println("Van-e pontosan 1000 fős helység: ");
         int i = 0;
         while(i < DB && !(letszamok[i] == 1000)){
@@ -70,7 +67,7 @@ public class Helyseg {
             System.out.println("nincs");
         }
         
-        // eldöntés
+        // eldöntés II.
         System.out.println("Minden létszám > 1000: ");
         i = 0;
         while(i < DB && letszamok[i] > 1000){
